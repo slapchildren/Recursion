@@ -20,7 +20,7 @@
 
 /**
  * Tester class for the methods in Recursive.java
- * 
+ *
  * @author scottm
  *
  */
@@ -28,11 +28,31 @@ public class RecursiveTester {
 
     // run the tests
     public static void main(String[] args) {
-        doNextIsDoubleTests();
-        //doCarpetTest();
-        //doFairTeamsTests();
+//        doNextIsDoubleTests();
+        doCarpetTest();
+        doFairTeamsTests();
     }
+    private static void myTests() {
+        int[] numsForDouble = {1, 0, 0, -5, -10, 32, 64, 128, 2, 9, 18};
+        int actualDouble = Recursive.nextIsDouble(numsForDouble);
+        int expectedDouble = 5;
+        if (actualDouble == expectedDouble) {
+            System.out.println("Test 1 passed. next is double.");
+        } else {
+            System.out.println("Test 1 failed. next is double. expected: "
+                    + expectedDouble + ", actual: " + actualDouble);
+        }
 
+        numsForDouble = new int[] {-5, -10, 3, 7};
+        actualDouble = Recursive.nextIsDouble(numsForDouble);
+        expectedDouble = 1;
+        if (actualDouble == expectedDouble) {
+            System.out.println("Test 2 passed. next is double.");
+        } else {
+            System.out.println("Test 2 failed. next is double. expected: "
+                    + expectedDouble + ", actual: " + actualDouble);
+        }
+    }
     private static void doNextIsDoubleTests() {
         int[] numsForDouble = { 1, 2, 4, 8, 16, 32, 64, 128, 256 };
         int actualDouble = Recursive.nextIsDouble(numsForDouble);

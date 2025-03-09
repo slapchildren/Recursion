@@ -46,7 +46,7 @@ public class Recursive {
      * helper method to kick off the recursion
      * @param data data from the user, data != null
      * @param index current index of the array, !(index < 0) !(index >= data.length)
-     * @return
+     * @return the number of nextDoubles in the array
      */
     private static int countDoubles(int[] data, int index) {
         if(index < 0 || index >= data.length){
