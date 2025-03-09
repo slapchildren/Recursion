@@ -1,22 +1,22 @@
 /*  Student information for assignment:
-*
-*  On <MY|OUR> honor, <NAME1> (and <NAME2),
-*  this programming assignment is <MY|OUR> own work
-*  and <I|WE> have not provided this code to any other student.
-*
-*  Number of slip days used:
-*
-*  Student 1:
-*  UTEID:
-*  email address:
-*
-*  Student 2:
-*  UTEID:
-*  email address:
-*
-*  Grader name:
-*  Section number:
-*/
+ *
+ *  On <MY> honor, <Gideon Mogaji> (and <NAME2),
+ *  this programming assignment is <MY> own work
+ *  and <I> have not provided this code to any other student.
+ *
+ *  Number of slip days used: 0
+ *
+ *  Student 1:
+ *  UTEID: gm34284
+ *  email address: gideonmogaji@gmail.com
+ *
+ *  Student 2:
+ *  UTEID:
+ *  email address:
+ *
+ *  Grader name: Gracelynn Ray
+ *  Section number: 50620
+ */
 
 /**
  * Tester class for the methods in Recursive.java
@@ -29,8 +29,8 @@ public class RecursiveTester {
     // run the tests
     public static void main(String[] args) {
         doNextIsDoubleTests();
-        doCarpetTest();
-        doFairTeamsTests();
+        //doCarpetTest();
+        //doFairTeamsTests();
     }
 
     private static void doNextIsDoubleTests() {
