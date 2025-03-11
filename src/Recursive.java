@@ -20,6 +20,7 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Arrays;
 
 /**
  * Various recursive methods to be implemented.
@@ -39,12 +40,13 @@ public class Recursive {
 		if (data == null) {
 			throw new IllegalArgumentException("Failed precondition: " + "revString. parameter may not be null.");
 		}
-		return countDoubles(data, 0);
+		int index = 0;
+		return countDoubles(data, index);
 	}
 
 	/**
 	 * helper method to kick off the recursion
-	 * 
+	 *
 	 * @param data  data from the user, data != null
 	 * @param index current index of the array, !(index < 0) !(index >= data.length)
 	 * @return the number of nextDoubles in the array
@@ -123,6 +125,42 @@ public class Recursive {
 	 *         The return value will be greater than or equal to 0.
 	 */
 	public static int minDifference(int numTeams, int[] abilities) {
-		return -1;
+		if (numTeams < 2 || abilities == null || abilities.length < numTeams) {
+			return Integer.MAX_VALUE;
+		}
+		Arrays.sort(abilities);
+		int[] sums = new int[numTeams];
+		int index = 0;
+		return recurseMinDifference(index, numTeams, abilities, sums);
+	}
+
+	private static int recurseMinDifference(int index, int numTeams, int[] abilities, int[] sums) {
+		if (index == abilities.length) {
+			int temp = sums[0];
+			int minimum = temp;
+			int maximum = temp;
+			for (int i = 0; i < numTeams; i++) {
+				if (sums[i] == 0) {
+					return Integer.MAX_VALUE;
+				}
+				if (sums[i] < minimum) {
+					minimum = sums[i];
+				}
+				if (sums[i] > maximum) {
+					maximum = sums[i];
+				}
+			}
+			return maximum - minimum;
+		}
+		int minimumDifference = Integer.MAX_VALUE;
+		for (int i = 0; i < numTeams; i++) {
+			sums[i] += abilities[index];
+			int temp = recurseMinDifference(index + 1, numTeams, abilities, sums);
+			if (temp < minimumDifference) {
+				minimumDifference = temp;
+			}
+			sums[i] -= abilities[index];
+		}
+		return minimumDifference;
 	}
 }
