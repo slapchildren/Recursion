@@ -134,7 +134,19 @@ public class Recursive {
 		return recurseMinDifference(index, numTeams, abilities, sums);
 	}
 
+	/**
+	 *
+	 * @param index     represents the current ability we are assessing
+	 * @param numTeams  the number of teams to form
+	 * @param abilities the ability scores of the people to distribute
+	 * @param sums      an array of the abilities of every team at any given index
+	 * @return the minimum difference created from the combinations of the different
+	 *         number of teams
+	 */
 	private static int recurseMinDifference(int index, int numTeams, int[] abilities, int[] sums) {
+		if (index < 0 || sums == null) {
+			throw new IllegalArgumentException("index must be > 0 and sums != null");
+		}
 		if (index == abilities.length) {
 			int temp = sums[0];
 			int minimum = temp;
