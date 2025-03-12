@@ -28,11 +28,13 @@ public class RecursiveTester {
 
     // run the tests
     public static void main(String[] args) {
+        myTests();
 //        doNextIsDoubleTests();
 //        doCarpetTest();
-        doFairTeamsTests();
+//        doFairTeamsTests();
     }
     private static void myTests() {
+        // nextIsDouble tests
         int[] numsForDouble = {1, 0, 0, -5, -10, 32, 64, 128, 2, 9, 18};
         int actualDouble = Recursive.nextIsDouble(numsForDouble);
         int expectedDouble = 5;
@@ -40,7 +42,7 @@ public class RecursiveTester {
             System.out.println("Test 1 passed. next is double.");
         } else {
             System.out.println("Test 1 failed. next is double. expected: "
-                    + expectedDouble + ", actual: " + actualDouble);
+                + expectedDouble + ", actual: " + actualDouble);
         }
 
         numsForDouble = new int[] {-5, -10, 3, 7};
@@ -50,8 +52,13 @@ public class RecursiveTester {
             System.out.println("Test 2 passed. next is double.");
         } else {
             System.out.println("Test 2 failed. next is double. expected: "
-                    + expectedDouble + ", actual: " + actualDouble);
+                + expectedDouble + ", actual: " + actualDouble);
         }
+        // minDifference tests
+        int[] abilities = { 1, 3,  5, 6, 8, 10 };
+        showFairTeamsResults(Recursive.minDifference(4, abilities), 3, 3);
+        showFairTeamsResults(Recursive.minDifference(6, abilities), 9, 5);
+
     }
     private static void doNextIsDoubleTests() {
         int[] numsForDouble = { 1, 2, 4, 8, 16, 32, 64, 128, 256 };
@@ -61,7 +68,7 @@ public class RecursiveTester {
             System.out.println("Test 1 passed. next is double.");
         } else {
             System.out.println("Test 1 failed. next is double. expected: "
-                    + expectedDouble + ", actual: " + actualDouble);
+                + expectedDouble + ", actual: " + actualDouble);
         }
 
         numsForDouble = new int[] { 1, 3, 4, 2, 32, 8, 128, -5, 6 };
@@ -71,7 +78,7 @@ public class RecursiveTester {
             System.out.println("Test 2 passed. next is double.");
         } else {
             System.out.println("Test 2 failed. next is double. expected: "
-                    + expectedDouble + ", actual: " + actualDouble);
+                + expectedDouble + ", actual: " + actualDouble);
         }
 
         numsForDouble = new int[] { 1, 0, 0, -5, -10, 32, 64, 128, 2, 9, 18 };
@@ -81,7 +88,7 @@ public class RecursiveTester {
             System.out.println("Test 3 passed. next is double.");
         } else {
             System.out.println("Test 3 failed. next is double. expected: "
-                    + expectedDouble + ", actual: " + actualDouble);
+                + expectedDouble + ", actual: " + actualDouble);
         }
 
         numsForDouble = new int[] { 37 };
@@ -91,7 +98,7 @@ public class RecursiveTester {
             System.out.println("Test 4 passed. next is double.");
         } else {
             System.out.println("Test 4 failed. next is double. expected: "
-                    + expectedDouble + ", actual: " + actualDouble);
+                + expectedDouble + ", actual: " + actualDouble);
         }
 
         numsForDouble = new int[] { 37, 74 };
@@ -101,7 +108,7 @@ public class RecursiveTester {
             System.out.println("Test 5 passed. next is double.");
         } else {
             System.out.println("Test 5 failed. next is double. expected: "
-                    + expectedDouble + ", actual: " + actualDouble);
+                + expectedDouble + ", actual: " + actualDouble);
         }
         System.out.println();
     }
