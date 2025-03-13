@@ -23,6 +23,11 @@ public class LetterInventory {
     private int size;
     private int[] letterFreq;
 
+    /**
+     * constructor to initialize new letterinventory object
+     *
+     * @param str string of all char in the letterinventory, str != null
+     */
     public LetterInventory(String str) {
         if (str == null) {
             throw new IllegalArgumentException("String cannot be null");
@@ -40,6 +45,10 @@ public class LetterInventory {
         }
     }
 
+    /**
+     * @param ch character to retrieve from the letterinventory, ch != null
+     * @return returns char ch from letter inventory that matches user request
+     */
     public int get(char ch) {
         if (!('a' <= ch && ch <= 'z')) {
             throw new IllegalArgumentException("Invalid character");
@@ -48,14 +57,24 @@ public class LetterInventory {
         return letterFreq[ch - 'a'];
     }
 
+    /**
+     * @return size of letterinventory, which is the sum of all the frequencies
+     */
     public int size() {
         return size;
     }
 
+    /**
+     * @return true if letter inventory is empty and false otherwise
+     */
     public boolean isEmpty() {
         return size == 0;
     }
 
+    /**
+     * @return a string representation of the letter inventory
+     * pre: none
+     */
     public String toString() {
         StringBuilder string = new StringBuilder();
         for (int i = 0; i < ALPHABET_LENGTH; i++) {
@@ -68,6 +87,12 @@ public class LetterInventory {
         return string.toString();
     }
 
+    /**
+     * add two letter inventories together
+     *
+     * @param inv other letter inventory, inv != null
+     * @return a LetterInventory object thats an addition of both
+     */
     public LetterInventory add(LetterInventory inv) {
         if (inv == null) {
             throw new IllegalArgumentException("LetterInventory cannot be null");
@@ -80,6 +105,12 @@ public class LetterInventory {
         return result;
     }
 
+    /**
+     * subtract two letter inventory objects
+     *
+     * @param inv other inventory to subtract
+     * @return new letterinventory object that has the difference of both letterinventory objects
+     */
     public LetterInventory subtract(LetterInventory inv) {
         if (inv == null) {
             throw new IllegalArgumentException("LetterInventory cannot be null");
@@ -98,14 +129,19 @@ public class LetterInventory {
         return result;
     }
 
+    /**
+     * @param obj obj to check if equal, obj != null
+     * @return true if both objects are the exact same or if they have the same frequencies of
+     * all letters in the letterinventory container and false otherwise.
+     */
     public boolean equals(Object obj) {
-        if(obj == null){
+        if (obj == null) {
             throw new IllegalArgumentException("Invalid parameter");
         }
-        if(this == obj){
+        if (this == obj) {
             return true;
         }
-        if(this.getClass() != obj.getClass()){
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
         LetterInventory other = (LetterInventory) obj;
