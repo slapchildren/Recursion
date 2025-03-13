@@ -6,7 +6,7 @@
  *
  *  Number of slip days used: 0
  *
- *  Student 1:
+ *  Student 1: Gideon Mogaji
  *  UTEID: gm34284
  *  email address: gideonmogaji@gmail.com
  *

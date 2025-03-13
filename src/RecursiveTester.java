@@ -28,10 +28,10 @@ public class RecursiveTester {
 
     // run the tests
     public static void main(String[] args) {
-        myTests();
+//        myTests();
 //        doNextIsDoubleTests();
 //        doCarpetTest();
-//        doFairTeamsTests();
+        doFairTeamsTests();
     }
     private static void myTests() {
         // nextIsDouble tests
@@ -120,16 +120,16 @@ public class RecursiveTester {
     }
 
     private static void doFairTeamsTests() {
-//         System.out.println("Stress test for minDifference - may take up to a minute");
-//         int[] testerArr = new int[] {5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60,
-//         65, 70, 75, 100000};
-//         Stopwatch s = new Stopwatch();
-//         s.start();
-//         int actualInt = Recursive.minDifference(4, testerArr);
-//         s.stop();
-//         System.out.println("Time to solve for 16 people on 4 teams: " + s.time() +
-//         "\n");
-//         System.out.println(actualInt);
+         System.out.println("Stress test for minDifference - may take up to a minute");
+         int[] testerArr = new int[] {5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60,
+         65, 70, 75, 100000};
+         Stopwatch s = new Stopwatch();
+         s.start();
+         int actualInt = Recursive.minDifference(4, testerArr);
+         s.stop();
+         System.out.println("Time to solve for 16 people on 4 teams: " + s.time() +
+         "\n");
+         System.out.println(actualInt);
 
         int[] abilities = { 1, 2, 3, 4, 5, 6, 7 };
         showFairTeamsResults(Recursive.minDifference(3, abilities), 1, 1);
