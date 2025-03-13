@@ -15,7 +15,7 @@
  *  email address:
  *
  *  Grader name: Gracelynn Ray
- *  Section number: 50620
+ *  Section number: 50720
  */
 
 import java.awt.Color;
