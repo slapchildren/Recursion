@@ -38,16 +38,19 @@ public class AnagramFinderTester {
      * @param args Not used.
      */
     public static void main(String[] args) {
-
-        letterInventoryTests();
+        myTests();
+        //letterInventoryTests();
 
         // tests on the anagram solver itself
-        boolean displayAnagrams = getChoiceToDisplayAnagrams();
-        AnagramSolver solver
-                = new AnagramSolver(AnagramMain.readWords(dictionaryFileName));
-        runAnagramTests(solver, displayAnagrams);
+//        boolean displayAnagrams = getChoiceToDisplayAnagrams();
+//        AnagramSolver solver
+//                = new AnagramSolver(AnagramMain.readWords(dictionaryFileName));
+//        runAnagramTests(solver, displayAnagrams);
     }
+    private static void myTests(){
+        LetterInventory LI = new LetterInventory("");
 
+    }
     private static void letterInventoryTests() {
         LetterInventory lets1 = new LetterInventory("");
         Object expected = 0;

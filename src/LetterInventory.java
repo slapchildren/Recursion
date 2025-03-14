@@ -36,6 +36,7 @@ public class LetterInventory {
         size = 0;
         for (int i = 0; i < str.length(); i++) {
             char current = str.charAt(i);
+            current = Character.toLowerCase(current);
             if ('a' <= current && current <= 'z') {
                 current = Character.toLowerCase(current);
                 int currentPos = current - 'a';
@@ -50,7 +51,7 @@ public class LetterInventory {
      * @return returns char ch from letter inventory that matches user request
      */
     public int get(char ch) {
-        if (!('a' <= ch && ch <= 'z')) {
+        if (!('a' <= Character.toLowerCase(ch) && Character.toLowerCase(ch) <= 'z')) {
             throw new IllegalArgumentException("Invalid character");
         }
         ch = Character.toLowerCase(ch);
