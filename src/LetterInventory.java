@@ -123,8 +123,6 @@ public class LetterInventory {
                 return null;
             }
             result.letterFreq[i] = difference;
-        }
-        for (int i = 0; i < ALPHABET_LENGTH; i++) {
             result.size += result.letterFreq[i];
         }
         return result;

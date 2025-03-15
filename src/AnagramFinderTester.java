@@ -35,6 +35,7 @@ public class AnagramFinderTester {
 
     /**
      * main method that executes tests.
+     *
      * @param args Not used.
      */
     public static void main(String[] args) {
@@ -47,10 +48,75 @@ public class AnagramFinderTester {
 //                = new AnagramSolver(AnagramMain.readWords(dictionaryFileName));
 //        runAnagramTests(solver, displayAnagrams);
     }
-    private static void myTests(){
-        LetterInventory LI = new LetterInventory("");
 
+    private static void myTests() {
+        // constructor and toString();
+        LetterInventory LI1 = new LetterInventory("Stanford");
+        Object expected = "adfnorst";
+        Object actual = LI1.toString();
+        showTestResults(expected, actual, 1, "LetterInventory constructor and toString");
+        LetterInventory LI2 = new LetterInventory("");
+        expected = "";
+        actual = LI2.toString();
+        showTestResults(expected, actual, 2, "LetterInventory constructor and toString");
+        // size()
+        LI1 = new LetterInventory("banana");
+        expected = 6;
+        actual = LI1.size();
+        showTestResults(expected, actual, 3, "size()");
+        LI2 = new LetterInventory("123@!#$%");
+        expected = 0;
+        actual = LI2.size();
+        showTestResults(expected, actual, 4, "size()");
+        // get(char ch)
+        LI1 = new LetterInventory("apple");
+        expected = 2;
+        actual = LI1.get('p');
+        showTestResults(expected, actual, 5, "getFreq('p')");
+        LI2 = new LetterInventory("hello");
+        expected = 0;
+        actual = LI2.get('z');
+        showTestResults(expected, actual, 6, "getFreq('z')");
+        // add(LetterInventory other
+        LI1 = new LetterInventory("abc");
+        LI2 = new LetterInventory("def");
+        LetterInventory result = LI1.add(LI2);
+        expected = "abcdef";
+        actual = result.toString();
+        showTestResults(expected, actual, 7, "add()");
+        LetterInventory LI3 = new LetterInventory("aaa");
+        LetterInventory LI4 = new LetterInventory("bbb");
+        result = LI3.add(LI4);
+        expected = "aaabbb";
+        actual = result.toString();
+        showTestResults(expected, actual, 8, "add()");
+        // subtract(LetterInventory other)
+        LI1 = new LetterInventory("banana");
+        LI2 = new LetterInventory("ana");
+        result = LI1.subtract(LI2);
+        expected = "abn";
+        actual = result.toString();
+        showTestResults(expected, actual, 9, "subtract()");
+        LI3 = new LetterInventory("apple");
+        LI4 = new LetterInventory("pear");
+        result = LI3.subtract(LI4);  // "pear" has more 'r' than "apple" has
+        expected = null;
+        actual = result;
+        showTestResults(expected, actual, 10, "subtract()");
+        //equals(Object obj)
+        LI1 = new LetterInventory("listen");
+        LI2 = new LetterInventory("silent");
+        expected = true;
+        actual = LI1.equals(LI2);
+        showTestResults(expected, actual, 11, "equals() 'listen' == 'silent'");
+
+        LI3 = new LetterInventory("test");
+        LI4 = new LetterInventory("best");
+        expected = false;
+        actual = LI3.equals(LI4);
+        showTestResults(expected, actual, 12, "equals() 'test' != 'best'");
     }
+
     private static void letterInventoryTests() {
         LetterInventory lets1 = new LetterInventory("");
         Object expected = 0;
@@ -169,18 +235,18 @@ public class AnagramFinderTester {
         String response = console.nextLine();
         console.close();
         return response.length() > 0
-                && response.toLowerCase().charAt(0) == 'y';
+            && response.toLowerCase().charAt(0) == 'y';
     }
 
     private static boolean showTestResults(Object expected, Object actual,
                                            int testNum, String featureTested) {
 
         System.out.println("Test Number " + testNum + " testing "
-                + featureTested);
+            + featureTested);
         System.out.println("Expected result: " + expected);
         System.out.println("Actual result: " + actual);
         boolean passed = (actual == null && expected == null)
-                || (actual != null && actual.equals(expected));
+            || (actual != null && actual.equals(expected));
         if (passed) {
             System.out.println("Passed test " + testNum);
         } else {
@@ -193,7 +259,7 @@ public class AnagramFinderTester {
     /**
      * Method to run tests on Anagram solver itself.
      * pre: the files d3.txt and testCaseAnagrams.txt are in the local directory
-     *
+     * <p>
      * assumed format for file is
      * <NUM_TESTS>
      * <TEST_NUM>
@@ -219,28 +285,28 @@ public class AnagramFinderTester {
                 st.start();
                 // actual results
                 List<List<String>> actualAnagrams
-                        = solver.getAnagrams(currentTest.phrase, currentTest.maxWords);
+                    = solver.getAnagrams(currentTest.phrase, currentTest.maxWords);
                 st.stop();
-                if(displayAnagrams) {
+                if (displayAnagrams) {
                     displayAnagrams("actual anagrams", actualAnagrams);
                     displayAnagrams("expected anagrams", currentTest.anagrams);
                 }
 
 
-                if(checkPassOrFailTest(currentTest, actualAnagrams))
+                if (checkPassOrFailTest(currentTest, actualAnagrams))
                     solverTestCasesPassed++;
                 System.out.println("Time to find anagrams: " + st.time());
                 /* System.out.println("Number of calls to recursive helper method: " 
                         + NumberFormat.getNumberInstance(Locale.US).format(AnagramSolver.callsCount));*/
             }
             sc.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("\nProblem while running test cases on AnagramSolver. Check" +
-                    " that file testCaseAnagrams.txt is in the correct location.");
+                " that file testCaseAnagrams.txt is in the correct location.");
             System.out.println(e);
             System.out.println("AnagramSolver test cases run: " + solverTestCases);
             System.out.println("AnagramSolver test cases failed: "
-                    + (solverTestCases - solverTestCasesPassed));
+                + (solverTestCases - solverTestCasesPassed));
         }
         System.out.println("\nAnagramSolver test cases run: " + solverTestCases);
         System.out.println("AnagramSolver test cases failed: " + (solverTestCases - solverTestCasesPassed));
@@ -270,20 +336,20 @@ public class AnagramFinderTester {
         System.out.println("Phrase: " + currentTest.phrase);
         System.out.println("Word limit: " + currentTest.maxWords);
         System.out.println("Expected Number of Anagrams: "
-                + currentTest.anagrams.size());
-        if(actualAnagrams.equals(currentTest.anagrams)) {
+            + currentTest.anagrams.size());
+        if (actualAnagrams.equals(currentTest.anagrams)) {
             System.out.println("Passed Test");
         } else {
             System.out.println("\n!!! FAILED TEST CASE !!!");
             System.out.println("Recall MAXWORDS = 0 means no limit.");
             System.out.println("Expected number of anagrams: "
-                    + currentTest.anagrams.size());
+                + currentTest.anagrams.size());
             System.out.println("Actual number of anagrams:   "
-                    + actualAnagrams.size());
-            if(currentTest.anagrams.size() == actualAnagrams.size()) {
+                + actualAnagrams.size());
+            if (currentTest.anagrams.size() == actualAnagrams.size()) {
                 System.out.println("Sizes the same, "
-                        + "but either a difference in anagrams or"
-                        + " anagrams not in correct order.");
+                    + "but either a difference in anagrams or"
+                    + " anagrams not in correct order.");
             }
             System.out.println();
             passed = false;
@@ -327,7 +393,7 @@ public class AnagramFinderTester {
                 anagrams.add(anagram);
             }
             assert anagrams.size() == numAnagrams
-                    : "Wrong number of angrams read or expected";
+                : "Wrong number of angrams read or expected";
         }
     }
 }
