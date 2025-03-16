@@ -4,9 +4,9 @@
  *  this programming assignment is <MY> own work
  *  and <I> have not provided this code to any other student.
  *
- *  Number of slip days used: 0
+ *  Number of slip days used: 2
  *
- *  Student 1:
+ *  Student 1: Gideon Mogaji
  *  UTEID: gm34284
  *  email address: gideonmogaji@gmail.com
  *
@@ -17,6 +17,7 @@
  *  Grader name: Gracelynn Ray
  *  Section number: 50720
  */
+
 
 import java.awt.Color;
 import java.awt.Graphics;

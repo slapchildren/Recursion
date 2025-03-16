@@ -4,7 +4,7 @@
  *  this programming assignment is <MY> own work
  *  and <I> have not provided this code to any other student.
  *
- *  Number of slip days used: 0
+ *  Number of slip days used: 2
  *
  *  Student 1: Gideon Mogaji
  *  UTEID: gm34284
